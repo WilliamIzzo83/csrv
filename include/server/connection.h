@@ -35,13 +35,8 @@ public:
     // This code doesn't care about actual incoming message size.
     // It only takes into account the first packet. And sends an
     // hello world back.
-    ssize_t sent_bytes = send(client_socket_, srv_rsp, strlen(srv_rsp), 0);
-    if (sent_bytes == -1) {
-      std::cout << "Could not send data to client.\n";
-    } else {
-      std::cout << "Sending data to client.\n";
-    }
-
+    send(client_socket_, srv_rsp, strlen(srv_rsp), 0);
+    
     // Closes the connection and wait for other ones.
     close(client_socket_);
     end();
